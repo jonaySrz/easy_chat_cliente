@@ -1,0 +1,66 @@
+.hidde {
+    opacity: 0;
+}
+
+.card {
+    display: flex;
+    background: rgb(70, 70, 70);
+    padding: 1vw 3vw;
+    cursor: pointer;
+    transition: .1s;
+    justify-content: space-between;
+}
+
+.card-cont {
+    display: flex;
+    color: whitesmoke;
+    align-items: center;
+    gap: 2vw;
+}
+
+.card:hover{
+    background: rgb(85, 85, 85);
+    transform: translateY(-5px);
+}
+
+.card:hover .hidde {
+    opacity: 1;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    background: rgb(70, 70, 70);
+    height: 70vh;
+}
+
+.card p {
+    margin: 0;
+    padding: 0;
+    padding-top: 5px;
+}
+
+.card button {
+    padding-top: 5px;
+}
+
+.mat-icon {
+    font-size: 30px;
+}
+
+.welcome {
+    background: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome p {
+    margin: 1vw;
+    padding: 0;
+    color: whitesmoke;
+}
+
+.nombre {
+    font-size: 20px;
+}

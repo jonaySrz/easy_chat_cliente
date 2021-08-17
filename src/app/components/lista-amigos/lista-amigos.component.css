@@ -1,0 +1,54 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    background: rgb(70, 70, 70);
+    height: 70vh;
+}
+
+.card {
+    display: flex;
+    background: rgb(70, 70, 70);
+    padding: 1vw 3vw;
+    cursor: pointer;
+    transition: .1s;
+    justify-content: space-between;
+}
+
+.card-cont {
+    display: flex;
+    color: whitesmoke;
+    align-items: center;
+    gap: 2vw;
+}
+
+.card:hover{
+    background: rgb(85, 85, 85);
+    transform: translateY(-5px);
+}
+
+.card:hover .hidde {
+    opacity: 1;
+}
+
+.card p {
+    margin: 0;
+    padding: 0;
+    padding-top: 5px;
+    font-size: 1.1rem;
+}
+
+.card button {
+    padding-top: 5px;
+}
+
+.mat-icon {
+    font-size: 30px;
+}
+
+.delete{
+    color: rgba(231, 8, 8, 0.774);
+}
+
+.hidde {
+    opacity: 0;
+}

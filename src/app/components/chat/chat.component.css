@@ -1,0 +1,123 @@
+.chat {
+    width: 100%;
+    min-height: 70vh;
+    background: darkgrey;
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
+.texting textarea {
+    width: 100%;
+    background: rgb(112, 112, 112);
+    border-radius: 15px;
+    outline: none;
+    color: whitesmoke;
+    margin: .5vw;
+    padding: .5vw;
+    box-shadow: 1px 2px 5px grey;
+}
+
+.texting button {
+    margin: .5vw;
+    margin-left: 0;
+}
+
+.texting textarea::placeholder {
+    color: rgb(209, 209, 209);
+}
+
+.texting {
+    display: flex;
+    background: darkgrey;
+    padding-top: 1vw;
+}
+
+.mensajes {
+    width: 35%;
+    margin: 2vw 3vw;
+    margin-bottom: 0;
+    box-shadow: 1px 2px 5px grey;
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+}
+
+.horaOtro {
+    color: rgb(163, 163, 163);
+    font-size: 10px;
+}
+
+.horaYo {
+    color: rgb(66, 66, 66);
+    font-size: 10px;
+}
+
+.typing{
+    background: darkgrey;
+    padding-left: 3vw;
+    padding-top: 1vw;
+}
+
+.typing p {
+    margin: 0;
+    padding: 0;
+    color: rgb(44, 44, 44);
+    font-size: 1.05rem;
+}
+
+
+.otro{
+    background-color: rgb(94, 97, 100);
+    justify-self: flex-end;
+    border-radius: 15px 15px 15px 0;
+}
+
+.flexy {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.yo{
+    background-color: rgb(68, 161, 118);
+    margin-left: 60%;
+    border-radius: 15px 15px 0px 15px;
+}
+
+.mensajes p {
+    margin: 0;
+    padding: .5vw 1vw;
+}
+
+.chat::-webkit-scrollbar {
+    display: none;   
+}
+
+.acciones {
+    background: rgb(83, 83, 83);
+    padding: .5vw 0;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.acciones:hover .hidde {
+    opacity: 1;
+}
+
+.acciones p {
+    padding: 0;
+    margin: 0;
+    color: whitesmoke;
+}
+
+.dest {
+    font-size: 1.1rem;
+}
+
+.hidde {
+    opacity: 0;
+    transition: .1s;
+}

@@ -1,0 +1,47 @@
+.mat-basic {
+    color: whitesmoke;
+}
+
+.content {
+    background: grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .1s;
+}
+
+.profile {
+    margin-right: 3vw;
+    color: whitesmoke;
+}
+
+
+.searching {
+    display: flex;
+    align-items: center;
+    padding: .5vw 3vw;
+}
+
+.content:hover .hidde{
+    opacity: 1;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+#inputAmigos {
+    background: grey;
+    border: none;
+    color: whitesmoke;
+    outline: none;
+}
+
+#inputAmigos::placeholder {
+    color: rgba(245, 245, 245, 0.445);
+}
+
+.hidde {
+    opacity: 0
+}

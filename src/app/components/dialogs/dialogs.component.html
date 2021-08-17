@@ -1,0 +1,85 @@
+<div class="modal">
+
+    <ng-container *ngIf="data.action == 'addFriend'">
+            <h1 mat-dialog-title>Agregar amigo</h1>
+        <div mat-dialog-content>¿Desea añadir a <strong>{{data.name}}</strong> como amigo?</div>
+        
+    </ng-container>
+
+    <ng-container *ngIf="data.action == 'createAcount'">
+        <h1 mat-dialog-title>Bienvenid@</h1>
+    <div mat-dialog-content>La cuenta de <strong>{{data.name}}</strong> ha sido creada con éxito</div>
+    
+    </ng-container>
+
+    <ng-container *ngIf="data.action == 'addedFriend'">
+        <h1 mat-dialog-title>Éxito</h1>
+    <div mat-dialog-content>Se ha enviado una petición de amistad a <strong>{{data.name}}</strong>, cuando la acepte será añadido a tu lista de amigos</div>
+    
+    </ng-container>
+
+    <ng-container *ngIf="data.action == 'deleting'">
+        <h1 mat-dialog-title>Borrar amigo</h1>
+    <div mat-dialog-content>¿Seguro que desea borrar a <strong>{{data.name}}</strong> de la lista de amigos?</div>
+    
+    </ng-container>
+
+    <ng-container *ngIf="data.action == 'deleted'">
+        <h1 mat-dialog-title>Amigo borrado</h1>
+    <div mat-dialog-content><strong>{{data.name}}</strong> ha sido eliminado de la lista de amigos</div>
+    
+    </ng-container>
+
+    <ng-container *ngIf="data.action == 'errorAdding'">
+        <h1 mat-dialog-title>Error</h1>
+    <div mat-dialog-content>Ya hay una petición de amistad enviada para <strong>{{data.name}}</strong></div>
+    
+    </ng-container>
+
+    <ng-container *ngIf="data.action == 'added'">
+        <h1 mat-dialog-title>Nuevo amigo</h1>
+    <div mat-dialog-content><strong>{{data.name}}</strong> ha sido añadido/a a la lista de amigos</div>
+    
+    </ng-container>
+
+    <ng-container *ngIf="data.action == 'deleteMsg'">
+        <h1 mat-dialog-title>Borrar mensajes</h1>
+    <div mat-dialog-content>¿Esta seguro que desea borrar todos los mensajes con <strong>{{data.name}}</strong>?</div>
+    
+    </ng-container>
+
+    <ng-container *ngIf="data.action == 'deletedMsg'">
+        <h1 mat-dialog-title>Mensajes borrados</h1>
+    <div mat-dialog-content>Los mensajes con <strong>{{data.name}}</strong> han sido borrado con éxito</div>
+    
+    </ng-container>
+
+    <ng-container *ngIf="data.action == 'errorMsg'">
+        <h1 mat-dialog-title>Error</h1>
+    <div mat-dialog-content>Lo sentimos, algo ha ido mal, inténtelo de nuevo más tarde</div>
+    
+    </ng-container>
+
+    <ng-container *ngIf="data.action == 'deleteProfile'">
+        <h1 mat-dialog-title>{{data.name}}</h1>
+        <div mat-dialog-content>¿Seguro que desea borrar su perfil?</div>
+    
+    </ng-container>
+
+    <ng-container *ngIf="data.action == 'deletedProfile'">
+        <h1 mat-dialog-title>{{data.name}}</h1>
+        <div mat-dialog-content>Su perfil ha sido borrado con éxito</div>
+    
+    </ng-container>
+
+    <ng-container *ngIf="data.action == 'editedProfile'">
+        <h1 mat-dialog-title>{{data.name}}</h1>
+        <div mat-dialog-content>Su perfil ha sido actualizado con éxito</div>
+    
+    </ng-container>
+
+    <div mat-dialog-actions>
+        <button *ngIf="data.action == 'addFriend' || data.action == 'deleteProfile' || data.action == 'deleting' || data.action == 'deleteMsg'" mat-button color="accent" [mat-dialog-close]="true" cdkFocusInitial>Aceptar</button>
+        <button *ngIf="data.action == 'addFriend' || data.action == 'deleteProfile' || data.action == 'deleting' || data.action == 'deleteMsg'" mat-button color="warn" [mat-dialog-close]="false">Cancelar</button>
+    </div>
+</div>

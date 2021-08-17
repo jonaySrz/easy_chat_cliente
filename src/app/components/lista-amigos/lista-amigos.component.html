@@ -1,0 +1,13 @@
+
+<div class="content">
+
+    <div class="card" *ngFor="let item of listaAmigos" (click)="openChat(item.username)">
+        <div class="card-cont">
+            <mat-icon>account_circle</mat-icon>
+            <p>{{item.username}}</p>
+        </div>
+        
+        <button class="hidde" mat-button color="warn" (click)="deleteFriend($event ,item)">Eliminar amigo</button>
+    </div>
+
+</div>

@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+    <div class="content">
+
+        <div class="acciones">
+            <p>Sala de chat: <span class="dest">{{destination}}</span></p>
+            <button mat-button color="warn" class="hidde" (click)="borrarMensajes()">Borrar mensajes</button>
+        </div>
+
+        <div class="typing">
+            <p *ngIf="typing"><strong>{{typingUser}}</strong> is typing...</p>
+        </div>
+
+        <div class="chat" id="chat">
+            <div *ngFor="let item of chat">
+                <div class="flexy" *ngIf="item.mensaje">
+
+                    <ng-container *ngIf="item.emitter !== user.username;else yoEmit">
+                        <div class="mensajes otro">
+                            <p>{{item.mensaje}}</p>
+                            <p class="horaOtro">{{item.createdAt | date:'shortTime'}}</p>
+                        </div>
+                    </ng-container>
+
+                    <ng-template #yoEmit>
+                        <div class="mensajes yo">
+                            <p>{{item.mensaje}}</p>
+                            <p class="horaYo">{{item.createdAt | date:'shortTime'}}</p>
+                        </div>
+                    </ng-template>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="texting">
+            <textarea placeholder="Escribe un mensaje" [(ngModel)]="mensaje" (keypress)="isTyping()"></textarea>
+
+            <button mat-raised-button color="accent" autofocus (click)="enviarMensaje()">Enviar</button>
+        </div>
+    </div>
+
+<app-footer></app-footer>

@@ -1,0 +1,59 @@
+<app-header></app-header>
+
+<div class="content">
+
+    <div class="acciones">
+        <button mat-button *ngIf="read" color="basic" (click)="editable()">Editar</button>
+        <button mat-button *ngIf="!read" color="accent" (click)="editable()">Editar</button>
+        <button mat-button color="warn" (click)="borrarPerfil()">Borrar perfil </button>
+    </div>
+
+    <div class="form">
+
+    <form [formGroup]="userForm" (ngSubmit)="editarPerfil()">
+        <mat-form-field appearance="outline">
+            <mat-label>Usuario:</mat-label>
+            <input type="text" id="usuario" formControlName="username" matInput placeholder="Introduzca usuario" required autofocus [readonly]="read">
+            <mat-error *ngIf="userForm.get('usuario')?.hasError('required')">
+                Este campo es <strong>obligatorio</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Contraseña:</mat-label>
+            <input [type]="hide ? 'password' : 'text'"  formControlName="password" matInput placeholder="Introduzca contraseña" required autofocus [readonly]="read">
+            <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="userForm.get('password')?.hasError('required')">
+                Este campo es <strong>obligatorio</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Email:</mat-label>
+            <input type="text"  formControlName="email" matInput placeholder="Introduzca email" required autofocus [readonly]="read">
+            <mat-error *ngIf="userForm.get('email')?.hasError('required')">
+                Este campo es <strong>obligatorio</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <div class="btns">
+            <button mat-stroked-button color="accent" [disabled]="userForm.invalid || read" type="submit">Enviar</button>
+            <button mat-stroked-button color="warn" id="resetSign" [disabled]="read" type="reset">Cancelar</button>
+        </div>
+    </form>
+
+    <ng-container>
+        <mat-error class="customErr" *ngIf="userRepErr">
+            * El nombre de <strong>usuario</strong> ya está en uso
+        </mat-error>
+        <mat-error class="customErr" *ngIf="emailRepErr">
+            * Este <strong>email</strong> ya posee una cuenta
+        </mat-error>
+    </ng-container>
+
+</div>
+</div>
+
+<app-footer></app-footer>

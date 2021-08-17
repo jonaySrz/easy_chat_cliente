@@ -1,0 +1,110 @@
+<div class="content">
+    <div class="nav">
+        <img src="../../../assets/otros/logo.png" alt="logo">
+    </div>
+
+    <ng-container *ngIf="!nuevo">
+        <h1>Inicio de sesión</h1>
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <mat-form-field appearance="outline">
+                <mat-label>Usuario:</mat-label>
+                <input type="text" id="usuario" formControlName="usuario" matInput placeholder="Introduzca usuario" required autofocus>
+                <mat-error *ngIf="loginForm.get('usuario')?.hasError('required')">
+                    Este campo es <strong>obligatorio</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contraseña:</mat-label>
+                <input [type]="hide ? 'password' : 'text'" id="password" formControlName="password" matInput placeholder="*********" required>
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+                    Este campo es <strong>obligatorio</strong>
+                </mat-error>    
+            </mat-form-field>
+
+            <button mat-stroked-button color="accent" [disabled]="loginForm.invalid" type="submit">Enviar</button>
+            <button mat-stroked-button color="warn" id="resetLog" type="reset">Cancelar</button>
+        </form>
+
+        <ng-container>
+            <mat-error class="customErr" *ngIf="usuarioError">
+                * El <strong>usuario</strong> no es correcto
+            </mat-error>
+            <mat-error class="customErr" *ngIf="passwordError">
+                * La <strong>contraseña</strong> no es correcta
+            </mat-error>
+        </ng-container>
+
+        <p class="nuevaCuenta" (click)="nuevoUser()">
+            Aún no tengo una cuenta
+        </p>
+    </ng-container>
+
+    <ng-container *ngIf="nuevo">
+        <h1>Crea tu cuenta</h1>
+
+        <form [formGroup]="signForm" (ngSubmit)="nuevaCuenta()">
+            <mat-form-field appearance="outline">
+                <mat-label>Usuario:</mat-label>
+                <input type="text" id="usuario" formControlName="usuario" matInput placeholder="Introduzca usuario" required autofocus>
+                <mat-error *ngIf="signForm.get('usuario')?.hasError('required')">
+                    Este campo es <strong>obligatorio</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email:</mat-label>
+                <input type="email" id="email" formControlName="email" matInput placeholder="Introduzca su email" required>
+                <mat-error *ngIf="signForm.get('email')?.hasError('required')">
+                    Este campo es <strong>obligatorio</strong>
+                </mat-error>
+                <mat-error *ngIf="signForm.get('email')?.hasError('email')">
+                    Introduzca un <strong>email</strong> válido
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contraseña:</mat-label>
+                <input [type]="hide ? 'password' : 'text'" id="password" formControlName="password" matInput placeholder="*********" required>
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="signForm.get('password')?.hasError('required')">
+                    Este campo es <strong>obligatorio</strong>
+                </mat-error>    
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Repetir contraseña:</mat-label>
+                <input type="password" id="password2" formControlName="password2" matInput placeholder="*********" required>
+                <mat-error *ngIf="signForm.get('password2')?.hasError('required')">
+                    Este campo es <strong>obligatorio</strong>
+                </mat-error>    
+            </mat-form-field>
+
+            <button mat-stroked-button color="accent" [disabled]="signForm.invalid" type="submit">Enviar</button>
+            <button mat-stroked-button color="warn" id="resetSign" type="reset">Cancelar</button>
+        </form>
+
+        <ng-container>
+            <mat-error class="customErr" *ngIf="passwordInconcluent">
+                * Las <strong>contraseñas</strong> no coinciden
+            </mat-error>
+            <mat-error class="customErr" *ngIf="userRepErr">
+                * El nombre de <strong>usuario</strong> ya está en uso
+            </mat-error>
+            <mat-error class="customErr" *ngIf="emailRepErr">
+                * Este <strong>email</strong> ya posee una cuenta
+            </mat-error>
+        </ng-container>
+
+        <p class="nuevaCuenta" (click)="nuevoUser()">
+            Ya tengo una cuenta
+        </p>
+    </ng-container>
+
+</div>

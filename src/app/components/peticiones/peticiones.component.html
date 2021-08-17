@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+<div class="welcome">
+    <p>Tienes {{peticiones.length}} peticion(es) de amistad por responder</p>
+</div>
+
+<div class="content">
+
+    <div class="card" *ngFor="let item of peticiones">
+        <div class="card-cont">
+            <mat-icon>account_circle</mat-icon>
+            <p><span class="nombre">{{item.name}}</span> quiere ser tu amigo</p>
+        </div>
+
+        <div class="btns">
+            <button class="hidde" mat-button color="accent" (click)="response(item, 'aceptar')">Aceptar</button>
+            <button class="hidde" mat-button color="warn" (click)="response(item, 'rechazar')">Rechazar</button>
+        </div>
+    </div>
+
+</div>
+
+<app-footer></app-footer>

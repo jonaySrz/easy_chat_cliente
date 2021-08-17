@@ -1,0 +1,21 @@
+<div class="content">
+    <ng-container>
+        <div class="searching">
+
+                <input list="listaDeGente" placeholder="Busque a sus amigos..." id="inputAmigos" (change)="addFriend($event)">  
+
+            <button mat-icon-button color="basic">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+    </ng-container>
+
+    <div class="profile">
+        <button class="hidde" mat-button color="link" (click)="myProfile()">Mi perfil</button>
+        <button class="hidde" mat-button color="link" (click)="myPeticiones()" matBadge="{{peticiones.length}}" [matBadgeHidden]="hidden" matBadgeColor="accent" matBadgeSize="small">Amistad</button>
+    </div>
+
+    <datalist id="listaDeGente">
+        <option *ngFor="let item of listaGente" value="{{item.username}}"></option>
+    </datalist>
+</div>

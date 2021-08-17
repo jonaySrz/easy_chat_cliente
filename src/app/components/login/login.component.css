@@ -1,0 +1,55 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: rgb(0, 0, 0);
+    background: radial-gradient(circle, rgb(49, 49, 49) 0%, rgb(32, 32, 32) 100%);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.customErr{
+    margin-top: 1.5vw;
+}
+
+button {
+    margin-top: 3px;
+}
+
+.nav {
+    margin-bottom: 2vw;
+}
+
+.nav img {
+    height: 20vh;
+    width: auto;
+}
+
+mat-icon {
+    color:  whitesmoke;
+}
+
+h1 {
+    color:  whitesmoke;
+}
+
+.nuevaCuenta {
+    margin: 3vh 0;
+    color:  whitesmoke;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.nuevaCuenta:hover {
+    text-decoration: underline;
+}
+
+input {
+    color: whitesmoke;
+}
